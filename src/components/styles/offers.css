@@ -1,0 +1,49 @@
+.list {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--grey);
+    padding: 36px;
+    margin-bottom: 24px;
+}
+img {
+    border-right: 1px solid var(--grey);
+    padding-right: 24px;
+    margin-right: 24px;
+}
+.info {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.title {
+    display: flex;
+    flex-direction: column;
+    letter-spacing: 2px;
+}
+.title span:nth-child(1) {
+    font-weight: bold;
+}
+.price {
+    width: 200px;
+    text-align: right;
+}
+.btn {
+    width: 200px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+.btn-primary:hover {
+    color: var(--dark-blue);
+    background-color: var(--white);
+}
+.btn-outline-primary {
+    display: flex;
+    align-items: flex-end;
+}
+.cash {
+    text-decoration: line-through;
+}
+.bold {
+    font-size: 24px;
+}
