@@ -1,12 +1,19 @@
-.list {
+@import  "colors";
+
+.product-group {
+    background-color: $lightGrey;
+}
+.product {
     display: flex;
     align-items: center;
-    border: 1px solid var(--grey);
+    height: 158px;
+    border: 1px solid $grey;
     padding: 36px;
     margin-bottom: 24px;
+    background: $white;
 }
 img {
-    border-right: 1px solid var(--grey);
+    border-right: 1px solid $grey;
     padding-right: 24px;
     margin-right: 24px;
 }
@@ -34,8 +41,8 @@ img {
     font-weight: bold;
 }
 .btn-primary:hover {
-    color: var(--dark-blue);
-    background-color: var(--white);
+    color: $darkBlue;
+    background-color: $white;
 }
 .btn-outline-primary {
     display: flex;

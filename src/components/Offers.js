@@ -1,45 +1,23 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from "react-redux";
-import { fetchPrices } from '../features/insurance';
-import './styles/offers.css'
+import Spinner from './Spinner';
+import Spinner2 from './Spinner2';
+import Product from './Product';
+import Product2 from './Product2';
+import { useSelector } from 'react-redux';
 
 const Offers = () => {
-
-    const dispatch = useDispatch();
-    const price = useSelector((state) => state.price);
-    const lists = price?.products?.offerList;
-
-    useEffect(() => {
-        dispatch(fetchPrices())
-    }, [dispatch])
-
-    console.log(lists?.map(list => list));
+    const { isLoading, isLoading2, offerCount, offers } = useSelector(state => state.products);
+    console.log({offerCount, offers})
     return (
-        <div>
-            <ul className='list-group'>
-                {lists && lists.map((list, index) => {
-                    return (
-                        <li key={index} className='list'>
-                            <div>
-                                <img width='160px' height='50px' src={list.ImagePath} alt='insurance logo' />
-                            </div>
-                            <div className='info'>
-                                <div className='title'>
-                                    <span>{list.ProductDesc}</span>
-                                    <span>{list.FirmName}</span>
-                                </div>
-                                <div className='price'>
-                                    <div>{list.QuotaInfo.HasDiscount === true ? 'Peşin' : ''} <span className={(list.QuotaInfo.HasDiscount === true) ? 'cash' : 'bold'}>{list.Cash} TL</span> </div>
-                                    {list.QuotaInfo.HasDiscount === true && <h4>{list.QuotaInfo.PremiumWithDiscount} TL</h4>}
-                                    <button className={list.QuotaInfo.HasDiscount === true ? 'btn btn-primary' : 'btn btn-outline-primary'}  type="button">{(list.QuotaInfo.HasDiscount === true) ? 'SATIN AL' : 'TELEFONDA SATIN AL'}</button>
-                                </div>
-                                
-                            </div>
-                        </li>
-                    )
-                })}
-            </ul>
-        </div>
+        <>
+            {isLoading ?
+                <Spinner /> :
+                <Product />
+            }
+            {isLoading2 ?
+                <Spinner2 /> :
+                <Product2 />
+            }     
+        </>
     )
 }
 
