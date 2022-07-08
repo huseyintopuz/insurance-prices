@@ -1,5 +1,5 @@
 import {useSelector} from 'react-redux';
-import '../components/styles/product.scss';
+import './styles/product.scss';
 
 const Product = () => {
     const { products } = useSelector(state => state.products);

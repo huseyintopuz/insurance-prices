@@ -1,0 +1,20 @@
+.inform {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+.info-button {
+    width: 230px;
+}
+.offer-count {
+    font-size: 20px;
+}
+.modal-dialog {
+    width: 700px;
+    @media (min-width: 576px) {
+        max-width: none;
+    }
+}
+.modal-content {
+    width: 700px;
+}

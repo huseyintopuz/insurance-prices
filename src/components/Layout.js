@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import Offers from "./Offers";
+import ProductList from "./ProductList";
 import { useDispatch } from "react-redux";
 import { fetchProducts } from '../app/last';
 import './styles/layout.scss';
@@ -7,7 +7,6 @@ import './styles/layout.scss';
 const Layout = () => {
 
   const dispatch = useDispatch();
-  // const { products, products2, isLoading } = useSelector(state => state.products);
 
   useEffect(() => {
     dispatch(fetchProducts())
@@ -16,7 +15,7 @@ const Layout = () => {
 
   return (
     <div className='layout'>
-        <Offers />
+        <ProductList />
     </div>
   )
 }
