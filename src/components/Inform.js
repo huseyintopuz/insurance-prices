@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux';
 import './styles/inform.scss';
 
 const Inform = () => {
-    const { offerCount, getOffers, products, isLoading3, isLoading4 } = useSelector(state => state.products);
-    console.log({ offerCount, getOffers, products });
+    const { offerCount, getOffers, isLoading3, isLoading4 } = useSelector(state => state.products);
+    console.log({ offerCount, getOffers });
     const offersLength = getOffers.length;
     console.log({ offersLength })
 
@@ -15,14 +15,13 @@ const Inform = () => {
                     <button type="button" className="btn btn-primary " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                         There are {offerCount} insurance offers for you.
                     </button>
-
-                    {isLoading4 && (offersLength !== offerCount) ?
-                        <Spinner2 /> :
-                        !isLoading4 && (offersLength === offerCount) &&
-                        <div className="modal fade" id="staticBackdrop" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                            <div className="modal-dialog modal-dialog-scrollable">
-                                <div className="modal-content">
-                                    <div className="modal-body">
+                    <div className="modal fade" id="staticBackdrop" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div className="modal-dialog modal-dialog-scrollable">
+                            <div className="modal-content">
+                                <div className="modal-body">
+                                    {isLoading4 && (offersLength !== offerCount) ?
+                                        <Spinner2 /> :
+                                        !isLoading4 && (offersLength === offerCount) &&
                                         <ul className='product-group'>
                                             {getOffers
                                                 .slice().sort((a, b) => a.Cash - b.Cash)
@@ -47,12 +46,13 @@ const Inform = () => {
                                                     )
                                                 })}
                                         </ul>
-                                    </div>
+                                    }
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                    }
+
 
                 </div>
 
